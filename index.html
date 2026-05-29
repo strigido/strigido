@@ -16,13 +16,13 @@
         Chart.defaults.font.size = 16;
         Chart.defaults.locale = 'de-DE';
 
-        const grafSt = (x, p) => (Math.round(x*10**p)/10**p).toString().replace('.', ',');
+        const grafSt = (x, p) => (Math.round(x*10**p)/10**p).toFixed(p).replace('.', ',');
         const grafStC = (x, p) => {
             const rounded = Math.round(x*10**p)/10**p;
             if (rounded === 0) {
                 return (Math.ceil(x*10**(p-1))/10**p).toFixed(p).replace('.', ',');
             }
-            return rounded.toString().replace('.', ',');
+            return rounded.toFixed(p).replace('.', ',');
         }
     </script>
     <!-- sklicevanje -->
@@ -236,13 +236,8 @@
             Opazili smo, da pri krajših razdaljah za zlom potrebujemo večjo silo, špaget pa se pred zlomom minimalno ukrivi. Pri največji razdalji (20&nbsp;cm) pa se je špaget zlomil že pri zelo majhni obremenitvi.
         </p>
         <figure>
-            <img src="./media/graf_razdalja.png" alt="Slika grafa" loading="lazy">
-            <figcaption><script>setRef(GRAF, "ref-graf-razdalja");</script> odvisnost lomilne sile od razdalje med podporami</figcaption>
-        </figure>
-        
-        <figure>
             <canvas id="razdalja-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-razdalja")</script> odvisnost lomilne sile od razdalje med podporami</figcaption>
+            <figcaption><script>setRef(GRAF, "ref-graf-razdalja")</script> odvisnost lomilne sile od razdalje med podporama</figcaption>
             <script>
                 new Chart(document.getElementById('razdalja-graf'), {
                 type: 'scatterWithErrorBars',
@@ -250,11 +245,11 @@
                     datasets: [{
                         label: "meritve",
                         data: [
-                            { x: 20, y: 0.58, xMin: 20-0.0316, xMax: 20+0.0316, yMin: 0.58-0.1, yMax: 0.58+0.1 },
-                            { x: 7.5, y: 1.1562, xMin: 7.5-0.0302, xMax: 7.5+0.0302, yMin: 1.1562-0.1, yMax: 1.1562+0.1 },
-                            { x: 6, y: 1.6433, xMin: 6-0.046, xMax: 6+0.046, yMin: 1.6433-0.1, yMax: 1.6433+0.1 },
-                            { x: 5, y: 1.764125, xMin: 5-0.044, xMax: 5+0.044, yMin: 1.764125-0.1, yMax: 1.764125+0.1 },
-                            { x: 4, y: 2.1016, xMin: 4-0.022, xMax: 4+0.022, yMin: 2.1016-0.1, yMax: 2.1016+0.1 },
+                            { x: 20, y: 0.58, xMin: 20-0.1, xMax: 20+0.1, yMin: 0.58-0.0316, yMax: 0.58+0.0316 },
+                            { x: 7.5, y: 1.1562, xMin: 7.5-0.1, xMax: 7.5+0.1, yMin: 1.1562-0.0302, yMax: 1.1562+0.0302 },
+                            { x: 6, y: 1.6433, xMin: 6-0.1, xMax: 6+0.1, yMin: 1.6433-0.046, yMax: 1.6433+0.046 },
+                            { x: 5, y: 1.764125, xMin: 5-0.1, xMax: 5+0.1, yMin: 1.764125-0.044, yMax: 1.764125+0.044 },
+                            { x: 4, y: 2.1016, xMin: 4-0.1, xMax: 4+0.1, yMin: 2.1016-0.022, yMax: 2.1016+0.022 },
                         ],
 
                         pointRadius: 10,
@@ -307,7 +302,7 @@
                                     const xErr = ((p.xMax - p.xMin) / 2);
                                     const yErr = ((p.yMax - p.yMin) / 2);
 
-                                    return `razdalja: ${grafSt(p.x, 2)} cm ± ${grafStC(xErr, 2)} cm | sila: ${grafSt(p.y, 2)} N ± ${grafStC(yErr, 2)} N`;
+                                    return `razdalja: ${grafSt(p.x, 1)} cm ± ${grafStC(xErr, 1)} cm | sila: ${grafSt(p.y, 2)} N ± ${grafStC(yErr, 2)} N`;
                                 },
                             },
                         },

@@ -497,8 +497,81 @@
             Opazili smo, da se špaget pri majhnih razdaljah manj ukrivi kot pa pri večjih razdaljah. Prav tako smo opazili, da se debelejši špaget manj upogne kot tanjši.
         </p>
         <figure>
-            <img src="./media/graf_ukrivljenost_debelina.png" alt="Slika grafa" loading="lazy">
-            <figcaption><script>setRef(GRAF, "ref-graf-ukrivljenost-debelina");</script> odvisnost ukrivljenosti od debeline špagetov</figcaption>
+            <canvas id="ukrivljenost-debelina-graf"></canvas>
+            <figcaption><script>setRef(GRAF, "ref-graf-ukrivljenost-debelina")</script> odvisnost ukrivljenosti od debeline špagetov</figcaption>
+            <script>
+                new Chart(document.getElementById('ukrivljenost-debelina-graf'), {
+                type: 'scatterWithErrorBars',
+                data: {
+                    datasets: [{
+                        label: "meritve",
+                        data: [
+                            { x: 1.817, y: 2.35, xMin: 1.817-0.003, xMax: 1.817+0.003, yMin: 2.35-0.1, yMax: 2.35+0.1 },
+                            { x: 1.413, y: 2.4, xMin: 1.413-0.004, xMax: 1.413+0.004, yMin: 2.4-0.203101, yMax: 2.4+0.203101 },
+                            { x: 1.169, y: 3.357, xMin: 1.169-0.013, xMax: 1.169+0.013, yMin: 3.357-0.074345, yMax: 3.357+0.074345 },
+                        ],
+
+                        pointRadius: 10,
+                        borderWidth: 2,
+                    },
+                    {
+                        type: 'line',
+                        label: 'fit',
+                        data: [
+                            { x: 1.1, y: 3.28402508987382 },{ x: 1.116326530612245, y: 3.246979706995119 },{ x: 1.1326530612244898, y: 3.21088106195742 },{ x: 1.1489795918367347, y: 3.175691829070647 },{ x: 1.1653061224489796, y: 3.141376657391488 },{ x: 1.1816326530612247, y: 3.107902040364303 },{ x: 1.1979591836734695, y: 3.0752361957294383 },{ x: 1.2142857142857144, y: 3.0433489547628922 },{ x: 1.2306122448979593, y: 3.012211660007911 },{ x: 1.2469387755102042, y: 2.981797070744612 },{ x: 1.263265306122449, y: 2.9520792755195724 },{ x: 1.279591836734694, y: 2.9230336111246285 },{ x: 1.2959183673469388, y: 2.894636587474012 },{ x: 1.3122448979591836, y: 2.86686581788229 },{ x: 1.3285714285714287, y: 2.839699954293128 },{ x: 1.3448979591836736, y: 2.8131186270514266 },{ x: 1.3612244897959185, y: 2.787102388849384 },{ x: 1.3775510204081634, y: 2.7616326625111296 },{ x: 1.3938775510204082, y: 2.736691692311108 },{ x: 1.410204081632653, y: 2.7122624985488777 },{ x: 1.426530612244898, y: 2.68832883512767 },{ x: 1.4428571428571428, y: 2.6648751499062944 },{ x: 1.4591836734693877, y: 2.6418865476140496 },{ x: 1.4755102040816328, y: 2.619348755136385 },{ x: 1.4918367346938775, y: 2.5972480889954497 },{ x: 1.5081632653061225, y: 2.575571424864456 },{ x: 1.5244897959183674, y: 2.5543061689682256 },{ x: 1.5408163265306123, y: 2.5334402312344335 },{ x: 1.5571428571428572, y: 2.5129620000711355 },{ x: 1.573469387755102, y: 2.492860318656204 },{ x: 1.589795918367347, y: 2.473124462633414 },{ x: 1.6061224489795918, y: 2.453744119118285 },{ x: 1.6224489795918369, y: 2.434709366924323 },{ x: 1.6387755102040815, y: 2.416010657927273 },{ x: 1.6551020408163266, y: 2.3976387994912787 },{ x: 1.6714285714285715, y: 2.3795849378866647 },{ x: 1.6877551020408164, y: 2.3618405426343108 },{ x: 1.7040816326530612, y: 2.344397391716462 },{ x: 1.720408163265306, y: 2.3272475575982368 },{ x: 1.7367346938775512, y: 2.3103833940081917 },{ x: 1.7530612244897958, y: 2.2937975234300274 },{ x: 1.769387755102041, y: 2.277482825260957 },{ x: 1.7857142857142856, y: 2.2614324245954496 },{ x: 1.8020408163265307, y: 2.2456396815959203 },{ x: 1.8183673469387756, y: 2.2300981814146836 },{ x: 1.8346938775510204, y: 2.214801724633895 },{ x: 1.8510204081632653, y: 2.199744318192542 },{ x: 1.8673469387755102, y: 2.184920166771612 },{ x: 1.883673469387755, y: 2.17032366461053 },{ x: 1.9, y: 2.1559493877297524 },
+                        ],
+
+                        pointRadius: 0, // hide points
+                        borderWidth: 2,
+                        borderDash: [8, 4],
+                        fill: false,
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: {
+                                display: true,
+                                text: 'debelina (mm)',
+                            },
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'ukrivljenost (cm)',
+                            },
+                        },
+                    },
+
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label(ctx) {
+                                    const p = ctx.raw;
+
+                                    const hasError = p.xMin !== undefined && p.xMax !== undefined || p.yMin !== undefined && p.yMax !== undefined;
+                                    if (!hasError) {
+                                        return `debelina: ${grafSt(p.x, 2)} mm | ukrivljenost: ${grafSt(p.y, 1)} cm`;
+                                    }
+
+                                    const xErr = ((p.xMax - p.xMin) / 2);
+                                    const yErr = ((p.yMax - p.yMin) / 2);
+
+                                    return `debelina: ${grafSt(p.x, 2)} mm ± ${grafStC(xErr, 2)} mm | ukrivljenost: ${grafSt(p.y, 1)} cm ± ${grafStC(yErr, 1)} cm`;
+                                },
+                            },
+                        },
+                        legend: {
+                            display: true,
+                        },
+                    },
+                },
+                });
+            </script>
         </figure>
         <figure>
             <img src="./media/graf_ukrivljenost_razdalja.png" alt="Slika grafa" loading="lazy">

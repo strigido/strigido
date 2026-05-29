@@ -384,13 +384,13 @@
 
                                     const hasError = p.xMin !== undefined && p.xMax !== undefined || p.yMin !== undefined && p.yMax !== undefined;
                                     if (!hasError) {
-                                        return `razdalja: ${grafSt(p.x, 2)} cm | sila: ${grafSt(p.y, 2)} N`;
+                                        return `debelina: ${grafSt(p.x, 2)} mm | σ: ${grafSt(p.y, 0)} MPa`;
                                     }
 
                                     const xErr = ((p.xMax - p.xMin) / 2);
                                     const yErr = ((p.yMax - p.yMin) / 2);
 
-                                    return `razdalja: ${grafSt(p.x, 1)} cm ± ${grafStC(xErr, 1)} cm | sila: ${grafSt(p.y, 2)} N ± ${grafStC(yErr, 2)} N`;
+                                    return `debelina: ${grafSt(p.x, 2)} mm ± ${grafStC(xErr, 2)} mm | σ: ${grafSt(p.y, 0)} MPa ± ${grafStC(yErr, 0)} MPa`;
                                 },
                             },
                         },
@@ -463,7 +463,7 @@
 
                                     const hasError = p.xMin !== undefined && p.xMax !== undefined || p.yMin !== undefined && p.yMax !== undefined;
                                     if (!hasError) {
-                                        return `razdalja: ${grafSt(p.x, 2)} cm | sila: ${grafSt(p.y, 2)} N`;
+                                        return `razdalja: ${grafSt(p.x, 2)} cm | σ: ${grafSt(p.y, 0)} MPa`;
                                     }
 
                                     const xErr = ((p.xMax - p.xMin) / 2);

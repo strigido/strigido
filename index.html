@@ -16,7 +16,14 @@
         Chart.defaults.font.size = 16;
         Chart.defaults.locale = 'de-DE';
 
-        const grafSt = (x, p) => x.toFixed(p).replace('.', ',');
+        const grafSt = (x, p) => (Math.round(x*10**p)/10**p).toString().replace('.', ',');
+        const grafStC = (x, p) => {
+            const rounded = Math.round(x*10**p)/10**p;
+            if (rounded === 0) {
+                return (Math.ceil(x*10**(p-1))/10**p).toFixed(p).replace('.', ',');
+            }
+            return rounded.toString().replace('.', ',');
+        }
     </script>
     <!-- sklicevanje -->
     <script>
@@ -140,10 +147,6 @@
             Najprej nas je zanimalo, kako debelina špageta vpliva na silo, potrebno, da se špaget zlomi. Zato smo najprej na razdalji 20 cm testirali 3 različne debeline (N°1, N°3 in N°5). Opazili smo, da se tanjši špageti (N°1) zlomijo pri nižjih silah kot debelejši špageti in se tudi bolj upognejo pred zlomom. Debelejši špageti pa so se zdeli bolj togi in so pred zlomom zdržali večje obremenitve.
         </p>
         <figure>
-            <img src="./media/graf_debelina.png" alt="Slika grafa" loading="lazy">
-            <figcaption><script>setRef(GRAF, "ref-graf-debelina");</script> odvisnost lomilne sile od debeline špagetov</figcaption>
-        </figure>
-        <!--<figure>
             <canvas id="debelina-graf"></canvas>
             <figcaption><script>setRef(GRAF, "ref-graf-debelina")</script> odvisnost lomilne sile od debeline špagetov</figcaption>
             <script>
@@ -151,12 +154,27 @@
                 type: 'scatterWithErrorBars',
                 data: {
                     datasets: [{
+                        label: "meritve",
                         data: [
-                            { x: 1.413, y: 1.158, xMin: NaN, xMax: NaN, yMin: NaN, yMax: NaN },
+                            { x: 1.413, y: 1.158, xMin: 1.413-0.004, xMax: 1.413+0.004, yMin: 1.158-0.09167846, yMax: 1.158+0.09167846 },
+                            { x: 1.817, y: 2.048, xMin: 1.817-0.003, xMax: 1.817+0.003, yMin: 2.048-0.087258237, yMax: 2.048+0.087258237 },
+                            { x: 1.169, y: 0.564, xMin: 1.169-0.013, xMax: 1.169+0.013, yMin: 0.564-0.024310492, yMax: 0.564+0.024310492 },
                         ],
 
                         pointRadius: 10,
                         borderWidth: 2,
+                    },
+                    {
+                        type: 'line',
+                        label: 'fit',
+                        data: [
+                            { x: 1.1, y: 0.4209400000000003 },{ x: 1.116326530612245, y: 0.4581873469387756 },{ x: 1.1326530612244898, y: 0.49543469387755135 },{ x: 1.1489795918367347, y: 0.5326820408163266 },{ x: 1.1653061224489796, y: 0.5699293877551019 },{ x: 1.1816326530612247, y: 0.6071767346938781 },{ x: 1.1979591836734695, y: 0.6444240816326534 },{ x: 1.2142857142857144, y: 0.6816714285714291 },{ x: 1.2306122448979593, y: 0.7189187755102044 },{ x: 1.2469387755102042, y: 0.7561661224489797 },{ x: 1.263265306122449, y: 0.7934134693877555 },{ x: 1.279591836734694, y: 0.8306608163265308 },{ x: 1.2959183673469388, y: 0.8679081632653061 },{ x: 1.3122448979591836, y: 0.9051555102040818 },{ x: 1.3285714285714287, y: 0.9424028571428575 },{ x: 1.3448979591836736, y: 0.9796502040816333 },{ x: 1.3612244897959185, y: 1.0168975510204086 },{ x: 1.3775510204081634, y: 1.0541448979591839 },{ x: 1.3938775510204082, y: 1.0913922448979596 },{ x: 1.410204081632653, y: 1.128639591836735 },{ x: 1.426530612244898, y: 1.1658869387755102 },{ x: 1.4428571428571428, y: 1.203134285714286 },{ x: 1.4591836734693877, y: 1.2403816326530612 },{ x: 1.4755102040816328, y: 1.2776289795918374 },{ x: 1.4918367346938775, y: 1.3148763265306123 },{ x: 1.5081632653061225, y: 1.352123673469388 },{ x: 1.5244897959183674, y: 1.3893710204081637 },{ x: 1.5408163265306123, y: 1.426618367346939 },{ x: 1.5571428571428572, y: 1.4638657142857143 },{ x: 1.573469387755102, y: 1.50111306122449 },{ x: 1.589795918367347, y: 1.5383604081632654 },{ x: 1.6061224489795918, y: 1.5756077551020407 },{ x: 1.6224489795918369, y: 1.6128551020408168 },{ x: 1.6387755102040815, y: 1.6501024489795917 },{ x: 1.6551020408163266, y: 1.6873497959183679 },{ x: 1.6714285714285715, y: 1.7245971428571432 },{ x: 1.6877551020408164, y: 1.7618444897959185 },{ x: 1.7040816326530612, y: 1.7990918367346942 },{ x: 1.720408163265306, y: 1.8363391836734695 },{ x: 1.7367346938775512, y: 1.8735865306122452 },{ x: 1.7530612244897958, y: 1.9108338775510205 },{ x: 1.769387755102041, y: 1.9480812244897963 },{ x: 1.7857142857142856, y: 1.9853285714285716 },{ x: 1.8020408163265307, y: 2.022575918367347 },{ x: 1.8183673469387756, y: 2.059823265306123 },{ x: 1.8346938775510204, y: 2.0970706122448983 },{ x: 1.8510204081632653, y: 2.1343179591836736 },{ x: 1.8673469387755102, y: 2.171565306122449 },{ x: 1.883673469387755, y: 2.208812653061224 },{ x: 1.9, y: 2.2460600000000004 },
+                        ],
+
+                        pointRadius: 0, // hide points
+                        borderWidth: 2,
+                        borderDash: [8, 4],
+                        fill: false,
                     }]
                 },
 
@@ -174,7 +192,7 @@
                         y: {
                             title: {
                                 display: true,
-                                text: 'sila (N)',
+                                text: 'lomilna sila (N)',
                             },
                         },
                     },
@@ -185,21 +203,26 @@
                                 label(ctx) {
                                     const p = ctx.raw;
 
+                                    const hasError = p.xMin !== undefined && p.xMax !== undefined || p.yMin !== undefined && p.yMax !== undefined;
+                                    if (!hasError) {
+                                        return `debelina: ${grafSt(p.x, 2)} mm | sila: ${grafSt(p.y, 2)} N`;
+                                    }
+
                                     const xErr = ((p.xMax - p.xMin) / 2);
                                     const yErr = ((p.yMax - p.yMin) / 2);
 
-                                    return `debelina: ${grafSt(p.y, 2)} mm ± ${grafSt(p.y, 2)} mm | sila: ${grafSt(p.y, 3)} N ± ${grafSt(yErr, 3)} N`;
+                                    return `debelina: ${grafSt(p.x, 2)} mm ± ${grafStC(xErr, 2)} mm | sila: ${grafSt(p.y, 2)} N ± ${grafStC(yErr, 2)} N`;
                                 },
                             },
                         },
                         legend: {
-                            display: false,
+                            display: true,
                         },
                     },
                 },
                 });
             </script>
-        </figure>-->
+        </figure>
         <p>
             Iz meritev (graf <script>getRef("ref-graf-debelina");</script>) je razvidno, da lomilna sila strmo narašča z debelino špageta. To pojasnimo z vztrajnostnim momentom ploskve (\(I\)), ki določa odpornost telesa proti upogibu. Za špaget z okroglim prerezom in polmerom \(r\) velja enačba
             \[ I = \frac 1 4 π r^4. \]
@@ -776,7 +799,7 @@
 
                                     const yErr = ((p.yMax - p.yMin) / 2);
 
-                                    return `nihaji: ${p.x} | sila: ${grafSt(p.y, 3)} N ± ${grafSt(yErr, 3)} N`;
+                                    return `nihaji: ${p.x} | sila: ${grafSt(p.y, 3)} N ± ${grafStC(yErr, 3)} N`;
                                 },
                             },
                         },

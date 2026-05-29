@@ -403,23 +403,36 @@
             </script>
         </figure>
         <figure>
-            <img src="./media/graf_lomna_napetost.png" alt="Slika grafa" loading="lazy">
-            <figcaption><script>setRef(GRAF, "ref-graf-lomna-napetost-razdalja");</script> odvisnost lomne napetosti od razdalje med podporami</figcaption>
-        </figure>
-        <!--<figure>
-            <canvas id="razdalja-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-razdalja")</script> odvisnost lomilne sile od razdalje med podporami</figcaption>
+            <canvas id="lomna-napetost-razdalja-graf"></canvas>
+            <figcaption><script>setRef(GRAF, "ref-graf-lomna-napetost-razdalja")</script> odvisnost lomne napetosti od razdalje med podporama</figcaption>
             <script>
-                new Chart(document.getElementById('razdalja-graf'), {
+                new Chart(document.getElementById('lomna-napetost-razdalja-graf'), {
                 type: 'scatterWithErrorBars',
                 data: {
                     datasets: [{
+                        label: "meritve",
                         data: [
-                            { x: NaN, y: NaN, xMin: NaN, xMax: NaN, yMin: NaN, yMax: NaN },
+                            { x: 20, y: 185.089, xMin: 20-0.1, xMax: 20+0.1, yMin: 185.089-10.11199, yMax: 185.089+10.11199 },
+                            { x: 7.5, y: 138.34, xMin: 7.5-0.1, xMax: 7.5+0.1, yMin: 138.34-3.62127, yMax: 138.34+3.62127 },
+                            { x: 6, y: 157.2556, xMin: 6-0.1, xMax: 6+0.1, yMin: 157.2556-4.39438, yMax: 157.2556+4.39438 },
+                            { x: 5, y: 140.6, xMin: 5-0.1, xMax: 5+0.1, yMin: 140.6-3.4989, yMax: 140.6+3.4989 },
+                            { x: 4, y: 134.09, xMin: 4-0.1, xMax: 4+0.1, yMin: 134.09-1.397, yMax: 134.09+1.397 },
                         ],
 
                         pointRadius: 10,
                         borderWidth: 2,
+                    },
+                    {
+                        type: 'line',
+                        label: 'fit',
+                        data: [
+                            { x: 4.0, y: 137.9536 },{ x: 4.5, y: 139.41155 },{ x: 5.0, y: 140.86950000000002 },{ x: 5.5, y: 142.32745 },{ x: 6.0, y: 143.7854 },{ x: 6.5, y: 145.24335000000002 },{ x: 7.0, y: 146.7013 },{ x: 7.5, y: 148.15925000000001 },{ x: 8.0, y: 149.6172 },{ x: 8.5, y: 151.07515 },{ x: 9.0, y: 152.53310000000002 },{ x: 9.5, y: 153.99105 },{ x: 10.0, y: 155.449 },{ x: 10.5, y: 156.90695 },{ x: 11.0, y: 158.3649 },{ x: 11.5, y: 159.82285000000002 },{ x: 12.0, y: 161.2808 },{ x: 12.5, y: 162.73875 },{ x: 13.0, y: 164.19670000000002 },{ x: 13.5, y: 165.65465 },{ x: 14.0, y: 167.11260000000001 },{ x: 14.5, y: 168.57055000000003 },{ x: 15.0, y: 170.0285 },{ x: 15.5, y: 171.48645000000002 },{ x: 16.0, y: 172.9444 },{ x: 16.5, y: 174.40235 },{ x: 17.0, y: 175.8603 },{ x: 17.5, y: 177.31825 },{ x: 18.0, y: 178.77620000000002 },{ x: 18.5, y: 180.23415 },{ x: 19.0, y: 181.6921 },{ x: 19.5, y: 183.15005000000002 },{ x: 20.0, y: 184.608 },
+                        ],
+
+                        pointRadius: 0, // hide points
+                        borderWidth: 2,
+                        borderDash: [8, 4],
+                        fill: false,
                     }]
                 },
 
@@ -431,13 +444,13 @@
                             type: 'linear',
                             title: {
                                 display: true,
-                                text: 'razdalja med podporami (cm)',
+                                text: 'razdalja med podporama (cm)',
                             },
                         },
                         y: {
                             title: {
                                 display: true,
-                                text: 'sila (N)',
+                                text: 'lomna napetost (MPa)',
                             },
                         },
                     },
@@ -448,21 +461,26 @@
                                 label(ctx) {
                                     const p = ctx.raw;
 
+                                    const hasError = p.xMin !== undefined && p.xMax !== undefined || p.yMin !== undefined && p.yMax !== undefined;
+                                    if (!hasError) {
+                                        return `razdalja: ${grafSt(p.x, 2)} cm | sila: ${grafSt(p.y, 2)} N`;
+                                    }
+
                                     const xErr = ((p.xMax - p.xMin) / 2);
                                     const yErr = ((p.yMax - p.yMin) / 2);
 
-                                    return `debelina: ${grafSt(p.y, 2)} mm ± ${grafSt(p.y, 2)} mm | sila: ${grafSt(p.y, 3)} N ± ${grafSt(yErr, 3)} N`;
+                                    return `razdalja: ${grafSt(p.x, 1)} cm ± ${grafStC(xErr, 1)} cm | σ: ${grafSt(p.y, 0)} MPa ± ${grafStC(yErr, 0)} MPa`;
                                 },
                             },
                         },
                         legend: {
-                            display: false,
+                            display: true,
                         },
                     },
                 },
                 });
             </script>
-        </figure>-->
+        </figure>
         <p>
             Pri meritvah vpliva debeline \(d\) smo opazovali špagete treh različnih debelin (1,169&nbsp;mm; 1,413&nbsp;mm; 1,817&nbsp;mm). Izračunane lomne napetosti \(\sigma\) se gibljejo v območju od 174&nbsp;MPa do 196&nbsp;MPa. Na grafu <script>getRef("ref-graf-lomna-napetost-debelina")</script> lahko opazimo, da se lomna napetost z večanjem debeline rahlo manjša. Teoretično bi morala biti lomna napetost neodvisna od debeline, v praksi pa lahko pride do rahlih nihanj vrednosti \(\sigma\), zaradi nehomogenosti materiala (majhne razpoke, zračni mehurčki ipd.). K napaki prispeva tudi majhno število meritev. Na grafu tudi premica ne gre skozi območja napak vseh točk ravno zaradi teh možnih napak.
         </p>

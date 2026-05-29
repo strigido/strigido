@@ -239,6 +239,86 @@
             <img src="./media/graf_razdalja.png" alt="Slika grafa" loading="lazy">
             <figcaption><script>setRef(GRAF, "ref-graf-razdalja");</script> odvisnost lomilne sile od razdalje med podporami</figcaption>
         </figure>
+        
+        <figure>
+            <canvas id="razdalja-graf"></canvas>
+            <figcaption><script>setRef(GRAF, "ref-graf-razdalja")</script> odvisnost lomilne sile od razdalje med podporami</figcaption>
+            <script>
+                new Chart(document.getElementById('razdalja-graf'), {
+                type: 'scatterWithErrorBars',
+                data: {
+                    datasets: [{
+                        label: "meritve",
+                        data: [
+                            { x: 20, y: 0.58, xMin: 20-0.0316, xMax: 20+0.0316, yMin: 0.58-0.1, yMax: 0.58+0.1 },
+                            { x: 7.5, y: 1.1562, xMin: 7.5-0.0302, xMax: 7.5+0.0302, yMin: 1.1562-0.1, yMax: 1.1562+0.1 },
+                            { x: 6, y: 1.6433, xMin: 6-0.046, xMax: 6+0.046, yMin: 1.6433-0.1, yMax: 1.6433+0.1 },
+                            { x: 5, y: 1.764125, xMin: 5-0.044, xMax: 5+0.044, yMin: 1.764125-0.1, yMax: 1.764125+0.1 },
+                            { x: 4, y: 2.1016, xMin: 4-0.022, xMax: 4+0.022, yMin: 2.1016-0.1, yMax: 2.1016+0.1 },
+                        ],
+
+                        pointRadius: 10,
+                        borderWidth: 2,
+                    },
+                    {
+                        type: 'line',
+                        label: 'fit',
+                        data: [
+                            { x: 4.0, y: 2.112004956255174 },{ x: 4.326530612244898, y: 1.9816280628678413 },{ x: 4.653061224489796, y: 1.86794363456781 },{ x: 4.979591836734694, y: 1.7678537088168074 },{ x: 5.3061224489795915, y: 1.67899152672652 },{ x: 5.63265306122449, y: 1.599516366932954 },{ x: 5.959183673469388, y: 1.5279740817673504 },{ x: 6.285714285714286, y: 1.4631999619262346 },{ x: 6.612244897959183, y: 1.404249618878731 },{ x: 6.938775510204081, y: 1.3503488606304612 },{ x: 7.26530612244898, y: 1.3008567194790046 },{ x: 7.591836734693877, y: 1.2552377616805737 },{ x: 7.918367346938775, y: 1.2130410608810043 },{ x: 8.244897959183673, y: 1.173884030421599 },{ x: 8.571428571428571, y: 1.1374398488249928 },{ x: 8.897959183673468, y: 1.1034275769505588 },{ x: 9.224489795918366, y: 1.0716043154877164 },{ x: 9.551020408163264, y: 1.0417589260049858 },{ x: 9.877551020408163, y: 1.0137069623061352 },{ x: 10.204081632653061, y: 0.9872865474322006 },{ x: 10.53061224489796, y: 0.9623549959549744 },{ x: 10.857142857142858, y: 0.9387860284204999 },{ x: 11.183673469387754, y: 0.9164674598316188 },{ x: 11.510204081632653, y: 0.8952992703073176 },{ x: 11.83673469387755, y: 0.8751919859070773 },{ x: 12.16326530612245, y: 0.8560653127505189 },{ x: 12.489795918367346, y: 0.8378469792072869 },{ x: 12.816326530612244, y: 0.8204717499558518 },{ x: 13.142857142857142, y: 0.8038805827532394 },{ x: 13.46938775510204, y: 0.7880199042927953 },{ x: 13.795918367346937, y: 0.7728409859050731 },{ x: 14.122448979591836, y: 0.7582994033408815 },{ x: 14.448979591836734, y: 0.7443545676641531 },{ x: 14.775510204081632, y: 0.7309693165266752 },{ x: 15.10204081632653, y: 0.7181095569125857 },{ x: 15.428571428571427, y: 0.7057439519170395 },{ x: 15.755102040816325, y: 0.6938436453297516 },{ x: 16.081632653061224, y: 0.6823820187841623 },{ x: 16.408163265306122, y: 0.6713344770490516 },{ x: 16.734693877551017, y: 0.66067825771493 },{ x: 17.06122448979592, y: 0.6503922620888932 },{ x: 17.387755102040813, y: 0.6404569045799297 },{ x: 17.714285714285715, y: 0.6308539782487561 },{ x: 18.04081632653061, y: 0.6215665345257122 },{ x: 18.36734693877551, y: 0.6125787753779819 },{ x: 18.693877551020407, y: 0.6038759564423453 },{ x: 19.020408163265305, y: 0.5954442998389791 },{ x: 19.346938775510203, y: 0.5872709155514638 },{ x: 19.6734693877551, y: 0.5793437304029331 },{ x: 20.0, y: 0.5716514237822229 },
+                        ],
+
+                        pointRadius: 0, // hide points
+                        borderWidth: 2,
+                        borderDash: [8, 4],
+                        fill: false,
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: {
+                                display: true,
+                                text: 'razdalja med podporama (cm)',
+                            },
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'lomilna sila (N)',
+                            },
+                        },
+                    },
+
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label(ctx) {
+                                    const p = ctx.raw;
+
+                                    const hasError = p.xMin !== undefined && p.xMax !== undefined || p.yMin !== undefined && p.yMax !== undefined;
+                                    if (!hasError) {
+                                        return `razdalja: ${grafSt(p.x, 2)} cm | sila: ${grafSt(p.y, 2)} N`;
+                                    }
+
+                                    const xErr = ((p.xMax - p.xMin) / 2);
+                                    const yErr = ((p.yMax - p.yMin) / 2);
+
+                                    return `razdalja: ${grafSt(p.x, 2)} cm ± ${grafStC(xErr, 2)} cm | sila: ${grafSt(p.y, 2)} N ± ${grafStC(yErr, 2)} N`;
+                                },
+                            },
+                        },
+                        legend: {
+                            display: true,
+                        },
+                    },
+                },
+                });
+            </script>
+        </figure>
         <p>
             Graf <script>getRef("ref-graf-razdalja");</script> potrjuje, da je lomilna sila obratno sorazmerna z razdaljo med podporama. To lahko pojasnimo z navorom. Ko na sredino špageta delujemo s silo \(F\), se na mestu delovanja ustvari upogibni navor \(M= \frac F 2 \cdot \frac L 2 = \frac 1 4 F L\). Špaget se zlomi, ko notranja napetost v materialu doseže kritično vrednost (lomno napetost). Ker je napetost premo sorazmerna z navorom, vidimo, da daljša, kot je razdalja \(L\), večji navor povzroči ista sila \(F\). Posledično pri večjih razdaljah potrebujemo manjšo silo, da dosežemo kritični navor \(M_{\mathrm{krit}}\), pri katerem material popusti.
             \[F = \frac{4M_{\mathrm{krit}}} L \]

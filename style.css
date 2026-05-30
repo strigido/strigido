@@ -71,6 +71,22 @@ span:has(a.ref-link) {
     z-index: 100;
 }
 
+/* viri */
+
+dir.vir {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    color: #444;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+dir.vir a {
+    text-decoration: underline;
+    color: #444;
+}
+
 /* figure */
 
 figure {

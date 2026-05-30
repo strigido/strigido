@@ -103,9 +103,16 @@ figure img {
     max-height: 20em;
 }
 
+figure:has(canvas) {
+    display: flex;
+    flex-direction: column;
+}
+
 figcaption {
+    align-self: center;
     text-align: center;
     font-style: italic;
+    max-width: 30em;
 }
 
 /* tabele */

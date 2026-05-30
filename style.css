@@ -92,6 +92,9 @@ figure img, figure iframe {
     height: auto;
     border-radius: 0.5em;
 }
+figure iframe {
+    max-width: 100%;
+}
 figure img.siroka {
     max-width: 40em;
 }

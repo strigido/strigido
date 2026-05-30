@@ -225,7 +225,9 @@
         </figure>
         <p>
             Iz meritev (graf <script>getRef("ref-graf-debelina");</script>) je razvidno, da lomilna sila strmo narašča z debelino špageta. To pojasnimo z vztrajnostnim momentom ploskve (\(I\)), ki določa odpornost telesa proti upogibu. Za špaget z okroglim prerezom in polmerom \(r\) velja enačba
-            \[ I = \frac 1 4 π r^4. \]
+        </p>
+        \[ I = \frac 1 4 π r^4. \]
+        <p>
             Ker vztrajnostni moment ploskve narašča s četrto potenco polmera, že majhno povečanje debeline špageta poveča njegovo odpornost.
         </p>
         <p>(<a href="https://www2.arnes.si/~ljdvts/arhiv/2017/2017_1_600dpi/2017_1_2_600dpi.pdf">vir</a>)</p>
@@ -316,8 +318,8 @@
         </figure>
         <p>
             Graf <script>getRef("ref-graf-razdalja");</script> potrjuje, da je lomilna sila obratno sorazmerna z razdaljo med podporama. To lahko pojasnimo z navorom. Ko na sredino špageta delujemo s silo \(F\), se na mestu delovanja ustvari upogibni navor \(M= \frac F 2 \cdot \frac L 2 = \frac 1 4 F L\). Špaget se zlomi, ko notranja napetost v materialu doseže kritično vrednost (lomno napetost). Ker je napetost premo sorazmerna z navorom, vidimo, da daljša, kot je razdalja \(L\), večji navor povzroči ista sila \(F\). Posledično pri večjih razdaljah potrebujemo manjšo silo, da dosežemo kritični navor \(M_{\mathrm{krit}}\), pri katerem material popusti.
-            \[F = \frac{4M_{\mathrm{krit}}} L \]
         </p>
+        \[F = \frac{4M_{\mathrm{krit}}} L \]
         <p>(<a href="https://si.openprof.com/wb/navor?ch=434#Izra%C4%8Dun_navora_s_pomo%C4%8Djo_komponente_sile,_ki_je_pravokotna_na_ro%C4%8Dico">vir</a>)</p>
         <p>
             Iz enačbe je razvidno, da če razdaljo \(L\) povečamo, se sila \(F\) zmanjša, kar se tudi sklada z našimi meritvami na grafu. Krivulja sicer ne poteka čez območja napak vseh točk, kar lahko pojasnimo z nehomogenostjo materiala (špageti niso idealni, v strukturi imajo lahko majhne zračne pore, ki nastanejo med sušenjem testenin, če se taka napaka pojavi na sredini med podporama se špaget zlomi pri nižji sili, kot bi predvidevali po teoriji) in z vplivom strižnih sil. Uporabljena formula \(M = \frac 1 4 FL\) predpostavlja namreč čist upogib, pri zelo majhnih razdaljah pa postanejo pomembne tudi strižne sile.
@@ -665,7 +667,11 @@
             Vpliv števila špagetov v snopu na lomilno silo
         </h1>
         <p>
-            V tem delu poskusa smo raziskovali, kako je največja sila, potrebna za zlom snopa špagetov, odvisna od števila špagetov v snopu. Pri vseh glavnih meritvah smo ohranili enako razdaljo med podporama \[L = 11{,}5\, \mathrm{cm},\] spreminjali pa smo število špagetov v snopu. Neodvisna spremenljivka je bila torej število špagetov \(n\), odvisna spremenljivka pa lomilna sila \(F_{\mathrm{lom}}\). Snop smo obremenjevali v prečni smeri, dokler ni prišlo do porušitve.
+            V tem delu poskusa smo raziskovali, kako je največja sila, potrebna za zlom snopa špagetov, odvisna od števila špagetov v snopu. Pri vseh glavnih meritvah smo ohranili enako razdaljo med podporama
+        </p>
+        \[L = 11{,}5\, \mathrm{cm},\]
+        <p>
+            spreminjali pa smo število špagetov v snopu. Neodvisna spremenljivka je bila torej število špagetov \(n\), odvisna spremenljivka pa lomilna sila \(F_{\mathrm{lom}}\). Snop smo obremenjevali v prečni smeri, dokler ni prišlo do porušitve.
         </p>
         <p>
             Na začetku smo število špagetov v snopu določali iz mase snopa. Ta metoda je manj natančna, ker posamezni špageti nimajo popolnoma enake mase. V nadaljevanju smo zato špagete neposredno prešteli. Meritve s preštetim številom špagetov smo obravnavali kot zanesljivejše, saj je bila neodvisna spremenljivka določena bolj neposredno.
@@ -859,24 +865,28 @@
         </p>
         \[F_\mathrm{lom}(n) = (0{,}77297 \pm 0{,}04366)n + (2,775 \pm 1,355),\]
         <p>
-            kjer je \(F_\mathrm{lom}\) podan v Newtonih, \)n\) pa je število špagetov v snopu. Koeficient determinacije je
-            \[R^2=0{,}9691.\]
+            kjer je \(F_\mathrm{lom}\) podan v Newtonih, \(n\) pa je število špagetov v snopu. Koeficient determinacije je
         </p>
+        \[R^2=0{,}9691.\]
         <p>
             Ker je \(R^2\) zelo blizu 1, linearni model dobro opiše izmerjene podatke. Naklon premice
-            \[ a = 0{,}773 \, \mathrm{N}/\mathrm{špaget} \]
+        </p>
+        \[ a = 0{,}773 \, \mathrm{N}/\mathrm{špaget} \]
+        <p>
             pomeni, da je v našem poskusu en dodaten špaget povečal lomilno silo snopa povprečno za približno 0,77 N. Prosti člen
-            \[b=2{,}78 \,\mathrm{N}\]
+        </p>
+        \[b=2{,}78 \,\mathrm{N}\]
+        <p>
             nima neposrednega fizikalnega pomena kot sila za nič špagetov. Bolj smiselno ga je razumeti kot eksperimentalni popravek, ki vključuje vpliv začetnega kontakta z merilno napravo, trenja, načina vpetja in dejstva, da linearni model uporabljamo samo na območju meritev od približno 10 do 50 špagetov.
         </p>
         <p>
             Za snop petnajstih špagetov linearni model napove
-            \[F_\mathrm{lom}(15)=0{,}77297 \cdot 15 + 2{,}775 = 14{,}37 \,\mathrm{N}.\]
         </p>
+        \[F_\mathrm{lom}(15)=0{,}77297 \cdot 15 + 2{,}775 = 14{,}37 \,\mathrm{N}.\]
         <p>
             Neposredne meritve za \(n=15\) pri prvem načinu vpetja so bile 15,37&nbsp;N, 11,71&nbsp;N in 15,13&nbsp;N. Njihovo povprečje je \(\overline{F_{15}} = 14{,}07 \,\mathrm{N}\), standardni odklon pa \(s_{15} = 2{,}05 \,\mathrm{N}\), zato lahko za suhi snop petnajstih špagetov zapišemo
-            \[ F_\mathrm{lom} \approx 14{,}1 \,\mathrm N \pm 2{,}1 \,\mathrm N.\]
         </p>
+        \[ F_\mathrm{lom} \approx 14{,}1 \,\mathrm N \pm 2{,}1 \,\mathrm N.\]
         <p>
             Ta vrednost se dobro ujema z napovedjo linearnega modela 14,37&nbsp;N. To potrjuje, da linearno prileganje ni samo formalno prileganje grafa, ampak tudi smiselno napove lomilno silo za konkretno število špagetov.
         </p>
@@ -884,62 +894,88 @@
         <h2>Fizikalna razlaga linearnega trenda</h2>
         <p>
             Rezultat, da je odvisnost približno linearna, pove nekaj pomembnega o mehanskem obnašanju snopa. Če bi se snop špagetov obnašal kot popolnoma zlepljena homogena palica, linearne odvisnosti ne bi nujno pričakovali. Pri upogibu palice je največja upogibna napetost določena z izrazom
-            \[ \sigma_\mathrm{max} = \frac{M_\mathrm{max}c}{I}, \]
-            kjer je \(M_\mathrm{max}\) največji upogibni moment, \(I\) vztrajnostni moment prereza in \(c\) razdalja od nevtralne osi do zunanjega roba prereza. Za palico, obremenjeno na sredini med dvema podporama, velja
-            \[ M_\mathrm{max} = \frac{FL}{4}. \]
-            Iz teh zvez sledi
-            \[ F_\mathrm{lom} = \frac{4\sigma_\mathrm{krit}I}{Lc}. \]
         </p>
+        \[ \sigma_\mathrm{max} = \frac{M_\mathrm{max}c}{I}, \]
+        <p>
+            kjer je \(M_\mathrm{max}\) največji upogibni moment, \(I\) vztrajnostni moment prereza in \(c\) razdalja od nevtralne osi do zunanjega roba prereza. Za palico, obremenjeno na sredini med dvema podporama, velja
+        </p>
+        \[ M_\mathrm{max} = \frac{FL}{4}. \]
+        <p>
+            Iz teh zvez sledi
+        </p>
+        \[ F_\mathrm{lom} = \frac{4\sigma_\mathrm{krit}I}{Lc}. \]
         <p>
             Če bi snop deloval kot homogen valj, bi bil njegov vztrajnostni moment določen z integralom po prerezu:
-            \[ I_n = \int_{A_n} y^2 \, dA. \]
         </p>
+        \[ I_n = \int_{A_n} y^2 \, dA. \]
         <p>
             Pri približno okroglem snopu bi bila ploščina prereza sorazmerna s številom špagetov,
-            \[ A_n \propto n, \]
-            zato bi bil efektivni polmer snopa približno
-            \[ R_n \propto \sqrt n. \]
-            Za okrogel prerez velja
-            \[ I_n \propto R^4_n, \]
-            zato bi dobili
-            \[ I_n \propto n^2. \]
-            Ker je hkrati
-            \[ c_n \propto R_n \propto \sqrt n, \]
-            bi za popolnoma povezan homogen snop pričakovali približno
-            \[ F_\mathrm{lom} \propto \frac{I_n}{c_n} \propto \frac{n^2}{\sqrt n} = n^{2/3}. \]
         </p>
+        \[ A_n \propto n, \]
+        <p>
+            zato bi bil efektivni polmer snopa približno
+        </p>
+        \[ R_n \propto \sqrt n. \]
+        <p>
+            Za okrogel prerez velja
+        </p>
+        \[ I_n \propto R^4_n, \]
+        <p>
+            zato bi dobili
+        </p>
+        \[ I_n \propto n^2. \]
+        <p>
+            Ker je hkrati
+        </p>
+        \[ c_n \propto R_n \propto \sqrt n, \]
+        <p>
+            bi za popolnoma povezan homogen snop pričakovali približno
+        </p>
+        \[ F_\mathrm{lom} \propto \frac{I_n}{c_n} \propto \frac{n^2}{\sqrt n} = n^{2/3}. \]
         <p>
             Naše meritve pa ne kažejo odvisnosti \( F_\mathrm{lom} \propto n^{2/3} \), ampak približno linearno odvisnost \( F_\mathrm{lom} \propto n \). To pomeni, da se špageti v snopu niso obnašali kot popolnoma povezan homogen prerez. Boljši opis je, da je vsak špaget prispeval približno svoj del nosilnosti, prenos sile med špageti pa ni bil popoln.
         </p>
         <p>
             To lahko zapišemo z efektivnim modelom
-            \[ F_\mathrm{lom}(n)=F_0 + \int_0^n f_\mathrm{eff}(m) \, dm. \]
+        </p>
+        \[ F_\mathrm{lom}(n)=F_0 + \int_0^n f_\mathrm{eff}(m) \, dm. \]
+        <p>
             Tukaj je \(f_\mathrm{eff}(m)\) efektivni prispevek dodatnega špageta k lomilni sili, \(F_0\) pa eksperimentalni popravek zaradi kontakta, trenja in vpetja. Ta integralni zapis je zvezna idealizacija diskretnega dodajanja špagetov. Če je \(f_\mathrm{eff}(m)\) v našem merilnem območju približno konstanten, dobimo
-            \[ F_\mathrm{lom}(n) \approx F_0 + n f_\mathrm{eff}(m). \]
+        </p>
+        \[ F_\mathrm{lom}(n) \approx F_0 + n f_\mathrm{eff}(m). \]
+        <p>
             To je prav linearna zveza
-            \[ F_\mathrm{lom}(n) = an + b. \]
+        </p>
+        \[ F_\mathrm{lom}(n) = an + b. \]
+        <p>
             Iz prileganja sledi
-            \[ f_\mathrm{eff} \approx a = 0{,}773 \, \mathrm{N}/\mathrm{špaget}. \]
+        </p>
+        \[ f_\mathrm{eff} \approx a = 0{,}773 \, \mathrm{N}/\mathrm{špaget}. \]
+        <p>
             Povprečni efektivni prispevek enega špageta k lomilni sili je bil torej približno 0,77 N.
         </p>
 
         <h2>Razlaga sekvenčnega loma</h2>
         <p>
             Opažanje, da se je najprej zlomil zgornji špaget, lahko opišemo z modelom neenakomerne porazdelitve sile. Naj bo \(\alpha_i\) delež celotne sile, ki ga nosi \(i\)-ti špaget. Tedaj je sila na posamezen špaget
-            \[ F_i = \alpha_i F, \]
-            pri čemer velja
-            \[ \sum_{i=1}^n \alpha_i = 1. \]
         </p>
+        \[ F_i = \alpha_i F, \]
+        <p>
+            pri čemer velja
+        </p>
+        \[ \sum_{i=1}^n \alpha_i = 1. \]
         <p>
             Če bi bila sila idealno enakomerno porazdeljena po vseh špagetih, bi za vse špagete približno veljalo
-            \[ \alpha_i \approx \frac 1 n. \]
         </p>
+        \[ \alpha_i \approx \frac 1 n. \]
         <p>
             V resničnem poskusu pa to ni držalo. Špageti bližje mestu delovanja sile so imeli večji delež obremenitve, zato je za nekatere zgornje špagete veljalo
-            \[ \alpha_i \gt \frac 1 n. \]
-            Prvi zlom nastopi pri tistem špagetu, za katerega najprej velja
-            \[ \alpha_i F \ge F_\mathrm{i,krit}. \]
         </p>
+        \[ \alpha_i \gt \frac 1 n. \]
+        <p>
+            Prvi zlom nastopi pri tistem špagetu, za katerega najprej velja
+        </p>
+        \[ \alpha_i F \ge F_\mathrm{i,krit}. \]
         <p>
             Ko se ta špaget zlomi, ne more več nositi sile. Sila, ki jo je prej nosil, se prerazporedi na preostale špagete. Njihovi deleži \(\alpha_i\) se zato povečajo, kar lahko povzroči verižno porušitev snopa. To je skladno z opažanjem, da se je najprej zlomil eden izmed zgornjih špagetov, nato pa so se zelo hitro zlomili še ostali.
         </p>
@@ -969,8 +1005,8 @@
         <h2>Zaključek</h2>
         <p>
             Ugotovili smo, da je število špagetov v snopu eden glavnih parametrov, ki določa lomilno silo. V območju od približno 10 do 50 špagetov je odvisnost dobro opisana z linearno zvezo
-            \[ F_\mathrm{lom}(n) = 0{,}773n + 2{,}775. \]
         </p>
+        \[ F_\mathrm{lom}(n) = 0{,}773n + 2{,}775. \]
         <p>
             Ker je \( R^2 = 0{,}9691 \), linearni model dobro opiše meritve. Fizikalno to pomeni, da se snop špagetov ni obnašal kot popolnoma homogena palica, za katero bi pričakovali močnejšo, približno \(n^{3/2}\), odvisnost. Obnašal se je bolj kot skupek posameznih špagetov, ki silo prenašajo približno aditivno. To je skladno tudi z opaženim načinom loma: najprej se je zlomil eden izmed zgornjih špagetov, nato pa se je sila prerazporedila na preostale špagete in povzročila verižno porušitev celotnega snopa.
         </p>

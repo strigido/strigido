@@ -11,6 +11,7 @@
     <!-- grafi -->
     <script src="./libs/chartjs.js"></script>
     <script src="./libs/chartjs-chart-error-bars.js"></script>
+    <script src="./libs/chartjs-plugin-annotation.js"></script>
     <script>
         Chart.defaults.font.family = 'Arial, Helvetica, sans-serif';
         Chart.defaults.font.size = 16;
@@ -1146,6 +1147,59 @@
                     },
 
                     plugins: {
+                        annotation: {
+                            annotations: {
+                                line1: {
+                                    type: 'line',
+                                    scaleID: 'x',
+                                    value: 0,
+                                    borderColor: 'gray',
+                                    borderWidth: 2,
+                                    borderDash: [2, 4],
+                                    label: {
+                                        display: true,
+                                        position: 'start',
+                                        backgroundColor: "white",
+                                        color: "gray",
+                                        padding: "2",
+                                        content: '10 Hz',
+                                    },
+                                },
+                                line2: {
+                                    type: 'line',
+                                    scaleID: 'x',
+                                    value: 27000,
+                                    borderColor: 'gray',
+                                    borderWidth: 2,
+                                    borderDash: [2, 4],
+                                    label: {
+                                        display: true,
+                                        position: 'start',
+                                        backgroundColor: "white",
+                                        color: "gray",
+                                        padding: "2",
+                                        content: '20 Hz',
+                                    },
+                                },
+                                line3: {
+                                    type: 'line',
+                                    scaleID: 'x',
+                                    value: 63000,
+                                    borderColor: 'gray',
+                                    borderWidth: 2,
+                                    borderDash: [2, 4],
+                                    label: {
+                                        display: true,
+                                        position: 'end',
+                                        backgroundColor: "white",
+                                        color: "gray",
+                                        padding: "2",
+                                        content: '30 Hz',
+                                    },
+                                },
+                            }
+                        },
+
                         tooltip: {
                             callbacks: {
                                 label(ctx) {

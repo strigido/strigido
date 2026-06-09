@@ -739,10 +739,8 @@
         </h1>
         <p>
             V tem delu poskusa smo raziskovali, kako je največja sila, potrebna za zlom snopa špagetov, odvisna od števila špagetov v snopu. Pri vseh glavnih meritvah smo ohranili enako razdaljo med podporama
-        </p>
-        \[L = 11{,}5\, \mathrm{cm},\]
-        <p>
-            spreminjali pa smo število špagetov v snopu. Neodvisna spremenljivka je bila torej število špagetov \(n\), odvisna spremenljivka pa lomilna sila \(F_{\mathrm{lom}}\). Snop smo obremenjevali v prečni smeri, dokler ni prišlo do porušitve.
+            \[L = 11{,}5\, \mathrm{cm}\]
+            in debelino špagetov (N°3), spreminjali pa smo število špagetov v snopu. Neodvisna spremenljivka je bila torej število špagetov \(n\), odvisna spremenljivka pa lomilna sila \(F_{\mathrm{lom}}\). Snop smo obremenjevali v prečni smeri, dokler ni prišlo do porušitve.
         </p>
         <p>
             Na začetku smo število špagetov v snopu določali iz mase snopa. Ta metoda je manj natančna, ker posamezni špageti nimajo popolnoma enake mase. V nadaljevanju smo zato špagete neposredno prešteli. Meritve s preštetim številom špagetov smo obravnavali kot zanesljivejše, saj je bila neodvisna spremenljivka določena bolj neposredno.
@@ -835,11 +833,11 @@
             </table>
         </figure>
         <p>
-            Iz grafa <script>getRef("ref-graf-snopi");</script> je razvidno, da lomilna sila z večanjem števila špagetov narašča skoraj linearno. Vsak dodaten špaget v snopu je v povprečju povečal silo, ki jo je snop prenesel pred zlomom. Točke ne ležijo popolnoma na premici, kar potrjuje, da je bil poskus občutljiv tudi na geometrijo snopa in način vpetja. Največji raztros vidimo pri ponovljenih meritvah za \(n=15\) in \(n=40\), kjer smo pri enakem številu špagetov dobili različne lomilne sile.
+            Iz grafa <script>getRef("ref-graf-snopi");</script> je razvidno, da lomilna sila z večanjem števila špagetov narašča približno linearno. Vsak dodaten špaget v snopu je v povprečju povečal silo, ki jo je snop prenesel pred zlomom. Točke ne ležijo popolnoma na premici, kar potrjuje, da je bil poskus občutljiv tudi na geometrijo snopa in način vpetja. Največji raztros vidimo pri ponovljenih meritvah za \(n=15\) in \(n=40\), kjer smo pri enakem številu špagetov dobili različne lomilne sile.
         </p>
         <figure>
             <canvas id="snopi-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-snopi");</script> odvisnost lomilne sile snopa od števila špagetov pri razdalji med podporama \(L=11{,}5 \, \mathrm{cm}\) <br> Točke predstavljajo posamezne meritve, črtkana premica pa linearno prileganje. Točka pri \(n=35\) je označena posebej, ker je bilo število špagetov pri tej meritvi ocenjeno iz mase.
+            <figcaption><script>setRef(GRAF, "ref-graf-snopi");</script> odvisnost lomilne sile snopa špagetov N°3 od števila špagetov pri razdalji med podporama \(L=11{,}5 \, \mathrm{cm}\) <br> Točke predstavljajo posamezne meritve, črtkana premica pa linearno prileganje. Točka pri \(n=35\) je označena posebej, ker je bilo število špagetov pri tej meritvi ocenjeno iz mase.
             </figcaption>
             <script>
                 new Chart(document.getElementById('snopi-graf'), {
@@ -951,12 +949,12 @@
         </p>
         <p>
             Za snop petnajstih špagetov linearni model napove
-            \[F_\mathrm{lom}(15)=0{,}77 \cdot 15 + 2{,}78 = 14{,}33 \,\mathrm{N}.\]
         </p>
+        \[F_\mathrm{lom}(15)=0{,}77 \cdot 15 + 2{,}78 = 14{,}33 \,\mathrm{N}.\]
         <p>
             Neposredne meritve za \(n=15\) pri prvem načinu vpetja so bile 15,37&nbsp;N, 11,71&nbsp;N in 15,13&nbsp;N. Njihovo povprečje je \(\overline{F_{15}} = 14{,}07 \,\mathrm{N}\), standardni odklon pa \(s_{15} = 2{,}05 \,\mathrm{N}\), zato lahko za suhi snop petnajstih špagetov zapišemo
-            \[ F_\mathrm{lom} \approx 14{,}1 \,\mathrm N \pm 2{,}1 \,\mathrm N.\]
         </p>
+        \[ F_\mathrm{lom} \approx 14{,}1 \,\mathrm N \pm 2{,}1 \,\mathrm N.\]
         <p>
             Ta vrednost se dobro ujema z napovedjo linearnega modela 14,33&nbsp;N. To potrjuje, da linearno prileganje ni samo formalno prileganje grafa, ampak tudi smiselno napove lomilno silo za konkretno število špagetov.
         </p>
@@ -1103,7 +1101,7 @@
             <figcaption><script>setRef(VIDEO, "ref-video-upogibanje");</script> upočasnjen posnetek upogibanja špagetov</figcaption>
         </figure>
         <p>
-            Gonilnik smo med poskusom štirikrat ustavili in izmerili lomilno silo pri 20&nbsp;cm razmiku med podporama, vsakič za 8 špagetov. Pri tem smo iz časa upogibanja \(t\), ki smo ga merili s štoparico, in frekvence \(\nu\) izračunali tudi približno št. nihajev \(N=\nu t\). Začeli smo s frekvenco 10&nbsp;Hz, potem pa smo zaradi časovne omejitve po prvi ustavitvi frekvenco zvišali na 20&nbsp;Hz, po drugi ustavitvi pa na 30&nbsp;Hz.
+            Gonilnik smo med poskusom štirikrat ustavili in pri razmiku med podporama 20&nbsp;cm vsakič izmerili lomilne sile pri osmih posameznih špagetih. Pri tem smo iz časa upogibanja \(t\), ki smo ga merili s štoparico, in frekvence \(\nu\) izračunali tudi približno št. nihajev \(N=\nu t\). Začeli smo s frekvenco 10&nbsp;Hz, potem pa smo zaradi časovne omejitve po prvi ustavitvi frekvenco zvišali na 20&nbsp;Hz, po drugi ustavitvi pa na 30&nbsp;Hz.
         </p>
 
         <h2>Rezultati</h2>
@@ -1261,22 +1259,25 @@
             Sila, potrebna za zlom enega namočenega špageta, je bila 0,39&nbsp;N&nbsp;±&nbsp;0,04&nbsp;N, za zlom suhega špageta pa 0,73&nbsp;N ±&nbsp;0,07&nbsp;N.
         </p>
         <p>
-            Sila, potrebna za zlom snopa petnajstih namočenih špagetov, je bila 2,2&nbsp;N&nbsp;±&nbsp;0,3&nbsp;N, silo, potrebno za zlom enakega števila suhih špagetov pa lahko napovemo s pomočjo grafa <script>getRef("ref-graf-snopi");</script>:
+            Sila, potrebna za zlom snopa petnajstih namočenih špagetov, je bila 2,2&nbsp;N&nbsp;±&nbsp;0,3&nbsp;N. Sile, potrebne za zlom 15 suhih špagetov debeline N°1, nismo izmerili, lahko pa s prejšnjimi meritvami in opažanji ocenimo, kakšna bi bila. Funkcijo, ki opisuje odvisnost lomilne sile od števila špagetov v snopu \(n\) za špagete N°3, smo prilagodili že pri analizi grafa <script>getRef("ref-graf-snopi");</script>: 
         </p>
         \[
-            F_{\mathrm{lom,N°3}} (n)=n(0{,}77 \,\mathrm N \pm 0{,}05 \,\mathrm N) + (2{,}78 \,\mathrm N \pm 1{,}36 \,\mathrm N)
-        \]
-        \[
-            F_{\mathrm{lom,N°1}} (n)=0{,}565 \cdot F_{\mathrm{lom,N°3}} (n)
-        \]
-        \[
-            F_{\mathrm{lom,N°1}} (15)=8{,}1 \,\mathrm N \pm 1{,}2 \,\mathrm N
+            F_{\mathrm{lom,N°3}} (n) = (0{,}77 \,\mathrm N \pm 0{,}04 \,\mathrm N) \cdot n + (2{,}78 \,\mathrm N \pm 1{,}36 \,\mathrm N)
         \]
         <p>
-            Lomilna sila za en špaget se je z 20-minutnim namakanjem zmanjšala za 46&nbsp;%, za snop 15 špagetov pa za 72&nbsp;%.
+            Na grafu <script>getRef("ref-graf-debelina");</script> smo opazili, da lomilna sila v odvisnosti od debeline špagetov narašča linearno. Ob predpostavkah, da tudi pri snopih z naraščanjem debeline posameznih špagetov lomilna sila narašča linearno in da je razmerje med lomilnimi silami za špagete N°1 in N°3 enako kot razmerje med lomilnimi silami za posamezne špagete, lahko zapišemo, da je lomilna sila snopa petnajstih špagetov N°1 približno 0,48-kratna (0,56 N : 1,16 N) lomilni sili snopa petnajstih špagetov N°3:
+        </p>
+        \[
+            F_{\mathrm{lom,N°1}} (n)=0{,}48 \cdot F_{\mathrm{lom,N°3}} (n)
+        \]
+        \[
+            F_{\mathrm{lom,N°1}} (15)=7 \,\mathrm N \pm 1 \,\mathrm N
+        \]
+        <p>
+            Lomilna sila za en špaget se je z 20-minutnim namakanjem zmanjšala za 46&nbsp;%, za snop 15 špagetov pa za 68&nbsp;%.
         </p>
         <p>
-            Potrdimo lahko torej, da 20-minutno namakanje zmanjša odpornost špagetov na zlom, za kaj več pa je potrebnih več meritev.
+            Rezultati kažejo na to, da 20-minutno namakanje zmanjša odpornost špagetov na zlom, za kaj več pa je potrebnih več meritev.
         </p>
 
 

@@ -197,7 +197,7 @@
         </p>
         <figure>
             <canvas id="debelina-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-debelina")</script> odvisnost lomilne sile od debeline špagetov</figcaption>
+            <figcaption><script>setRef(GRAF, "ref-graf-debelina");</script> odvisnost lomilne sile od debeline špagetov</figcaption>
             <script>
                 new Chart(document.getElementById('debelina-graf'), {
                 type: 'scatterWithErrorBars',
@@ -273,24 +273,41 @@
             </script>
         </figure>
         <p>
-            Iz meritev (graf <script>getRef("ref-graf-debelina");</script>) je razvidno, da lomilna sila strmo narašča z debelino špageta. To pojasnimo z vztrajnostnim momentom ploskve (\(I\)), ki določa odpornost telesa proti upogibu. Za špaget z okroglim prerezom in polmerom \(r\) velja enačba
-        </p>
-        \[ I = \frac 1 4 π r^4. \]
-        <p>
-            Ker vztrajnostni moment ploskve narašča s četrto potenco polmera, že majhno povečanje debeline špageta poveča njegovo odpornost.
+            Iz meritev (graf <script>getRef("ref-graf-debelina");</script>) je razvidno, da lomilna sila narašča z debelino špageta. To pojasnimo z vztrajnostnim momentom ploskve (\(I\)), ki določa odpornost telesa proti upogibu. Za špaget z okroglim prerezom in polmerom \(r\) velja enačba
+            \[ I = \frac 1 4 π r^4. \]
+            Ker je vztrajnostni moment ploskve sorazmeren s četrto potenco polmera (\(I \propto r^4\)), bi teoretično pričakovali, da bo odvisnost sile od debeline opisana s potenčno funkcijo. Linearen trend v naših meritvah je mogoče posledica majhnega razpona debelin vzorcev, kjer se krivulja potenčne funkcije lahko lokalno približa premici.
         </p>
         <dir class="vir">
-            (<a href="https://www2.arnes.si/~ljdvts/arhiv/2017/2017_1_600dpi/2017_1_2_600dpi.pdf">vir</a>)
+            (<a href="https://www2.arnes.si/~ljdvts/arhiv/2017/2017_1_600dpi/2017_1_2_600dpi.pdf">vir</a>&nbsp;(3T-preizkus))
         </dir>
         <p>
             Poskus smo nato nadaljevali z enako debelino špagetov (1,169&nbsp;mm) pri različnih razdaljah med podporama \(L\) (20&nbsp;cm; 7,5&nbsp;cm; 6&nbsp;cm; 5&nbsp;cm; 4&nbsp;cm). Zanimalo nas je, kako razdalja vpliva na silo, ki je potrebna, da se špaget zlomi.
         </p>
+        <h4>
+            Definicija lomne napetosti:
+        </h4>
+        <p>
+            Lomna napetost je fizikalna količina, ki predstavlja največjo notranjo napetost v materialu tik pred lomom. Pri upogibu špageta se spodnja stran razteza, zgornja pa krči; špaget poči na mestu, kjer natezne napetosti na površini presežejo kritično vrednost. Teoretično je \(\sigma\) materialna konstanta, odvisna od strukture (poroznosti) proizvodnih procesov in temperature.
+        </p>
+        <h4>
+            Teorija:
+        </h4>
+        <p>
+            Povezava med silo \(F\), razdaljo med podporama \(L\) in lastnostmi špageta poda enačba za lomno napetost. Poenostavljeno jo zapišemo kot:
+            \[ \sigma = \frac{FL}{\pi r^2} \]
+            Iz tega sledi, da je lomilna sila obratno sorazmerna z razdaljo \(L\):
+            \[ F = \frac{\sigma \pi r^2}{L} \]
+            Ker sta \(\sigma\) in \(r\) za določen vzorec konstantna, pričakujemo, da se bo sila zmanjševala z večanjem razdalje med podporama \(F \propto \frac 1 L\).
+        </p>
+        <h4>
+            Opažanja:
+        </h4>
         <p>
             Opazili smo, da pri krajših razdaljah za zlom potrebujemo večjo silo, špaget pa se pred zlomom minimalno ukrivi. Pri največji razdalji (20&nbsp;cm) pa se je špaget zlomil že pri zelo majhni obremenitvi.
         </p>
         <figure>
             <canvas id="razdalja-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-razdalja")</script> odvisnost lomilne sile od razdalje med podporama</figcaption>
+            <figcaption><script>setRef(GRAF, "ref-graf-razdalja");</script> odvisnost lomilne sile od razdalje med podporama</figcaption>
             <script>
                 new Chart(document.getElementById('razdalja-graf'), {
                 type: 'scatterWithErrorBars',
@@ -368,21 +385,17 @@
             </script>
         </figure>
         <p>
-            Graf <script>getRef("ref-graf-razdalja");</script> potrjuje, da je lomilna sila obratno sorazmerna z razdaljo med podporama. To lahko pojasnimo z navorom. Ko na sredino špageta delujemo s silo \(F\), se na mestu delovanja ustvari upogibni navor \(M= \frac F 2 \cdot \frac L 2 = \frac 1 4 F L\). Špaget se zlomi, ko notranja napetost v materialu doseže kritično vrednost (lomno napetost). Ker je napetost premo sorazmerna z navorom, vidimo, da daljša, kot je razdalja \(L\), večji navor povzroči ista sila \(F\). Posledično pri večjih razdaljah potrebujemo manjšo silo, da dosežemo kritični navor \(M_{\mathrm{krit}}\), pri katerem material popusti.
-        </p>
-        \[F = \frac{4M_{\mathrm{krit}}} L \]
-        <dir class="vir">
-            (<a href="https://si.openprof.com/wb/navor?ch=434#Izra%C4%8Dun_navora_s_pomo%C4%8Djo_komponente_sile,_ki_je_pravokotna_na_ro%C4%8Dico">vir</a>)
-        </dir>
-        <p>
-            Iz enačbe je razvidno, da če razdaljo \(L\) povečamo, se sila \(F\) zmanjša, kar se tudi sklada z našimi meritvami na grafu. Krivulja sicer ne poteka čez območja napak vseh točk, kar lahko pojasnimo z nehomogenostjo materiala (špageti niso idealni, v strukturi imajo lahko majhne zračne pore, ki nastanejo med sušenjem testenin, če se taka napaka pojavi na sredini med podporama se špaget zlomi pri nižji sili, kot bi predvidevali po teoriji) in z vplivom strižnih sil. Uporabljena formula \(M = \frac 1 4 FL\) predpostavlja namreč čist upogib, pri zelo majhnih razdaljah pa postanejo pomembne tudi strižne sile.
+            Iz meritev na Grafu <script>getRef("ref-graf-razdalja");</script> je razvidno, da lomilna sila pada z razdaljo \(L\), kar se sklada z \(F \propto \frac 1 L\). Črtkana krivulja predstavlja potenčni fit, ki sledi trendu upadanja.
         </p>
         <p>
-            Nato nas je zanimala še lomna napetost (\(\sigma\)). Ta nam pove pri kolikšnem notranjem pritisku material poči. Teoretično bi morala biti za isti material konstantna, saj je odvisna le od strukture materiala, proizvodnih procesov in temperature.
+            Opazimo, da krivulja ne poteka skozi vsa območja merilnih negotovosti. To pripisujemo nehomogenosti materiala; špageti lahko vsebujejo mikroskopske zračne pore ali razpoke, ki nastanejo med sušenjem. Če se taka napaka nahaja na sredini špageta, se ta zlomi pri nižji sili, kot bi predvidevali po teoriji. Pri zelo majhnih razdaljah  pa k lomu lahko prispevajo tudi strižne sile, česar osnovna enačba za upogib ne upošteva.
+        </p>
+        <p>
+            V naslednjem koraku smo se osredotočili na izračunane vrednosti napetosti, ki smo jo definirali v prejšnjem poglavju. Čeprav bi morala biti lomna napetost kot materialna lastnost teoretično konstantna in neodvisna od geometrije vzorca, smo želeli preveriti, kako na njeno izračunano vrednost vplivata debelina špageta in razdalja med podporama v realnih pogojih.
         </p>
         <figure>
             <canvas id="lomna-napetost-debelina-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-lomna-napetost-debelina")</script> odvisnost lomne napetosti od debeline špagetov</figcaption>
+            <figcaption><script>setRef(GRAF, "ref-graf-lomna-napetost-debelina");</script> odvisnost lomne napetosti od debeline špagetov</figcaption>
             <script>
                 new Chart(document.getElementById('lomna-napetost-debelina-graf'), {
                 type: 'scatterWithErrorBars',
@@ -459,7 +472,7 @@
         </figure>
         <figure>
             <canvas id="lomna-napetost-razdalja-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-lomna-napetost-razdalja")</script> odvisnost lomne napetosti od razdalje med podporama</figcaption>
+            <figcaption><script>setRef(GRAF, "ref-graf-lomna-napetost-razdalja");</script> odvisnost lomne napetosti od razdalje med podporama</figcaption>
             <script>
                 new Chart(document.getElementById('lomna-napetost-razdalja-graf'), {
                 type: 'scatterWithErrorBars',
@@ -537,25 +550,26 @@
             </script>
         </figure>
         <p>
-            Pri meritvah vpliva debeline \(d\) smo opazovali špagete treh različnih debelin (1,169&nbsp;mm; 1,413&nbsp;mm; 1,817&nbsp;mm). Izračunane lomne napetosti \(\sigma\) se gibljejo v območju od 174&nbsp;MPa do 196&nbsp;MPa. Na grafu <script>getRef("ref-graf-lomna-napetost-debelina")</script> lahko opazimo, da se lomna napetost z večanjem debeline rahlo manjša. Teoretično bi morala biti lomna napetost neodvisna od debeline, v praksi pa lahko pride do rahlih nihanj vrednosti \(\sigma\), zaradi nehomogenosti materiala (majhne razpoke, zračni mehurčki ipd.). K napaki prispeva tudi majhno število meritev. Na grafu tudi premica ne gre skozi območja napak vseh točk ravno zaradi teh možnih napak.
+            Pri meritvah vpliva debeline \(d\) smo opazovali špagete treh različnih debelin (1,169&nbsp;mm; 1,413&nbsp;mm; 1,817&nbsp;mm). Izračunane lomne napetosti \(\sigma\) se gibljejo v območju od 174&nbsp;MPa do 196&nbsp;MPa. Na grafu <script>getRef("ref-graf-lomna-napetost-debelina");</script> lahko opazimo, da se lomna napetost z večanjem debeline rahlo manjša. Teoretično bi morala biti lomna napetost neodvisna od debeline, v praksi pa lahko pride do rahlih nihanj vrednosti \(\sigma\), zaradi nehomogenosti materiala (majhne razpoke, zračni mehurčki ipd.). K napaki prispeva tudi majhno število meritev. Na grafu tudi premica ne gre skozi območja napak vseh točk ravno zaradi teh možnih napak.
         </p>
         <p>
-            Pri meritvah vpliva razdalje \(L\) med podporama (20&nbsp;cm; 7,5&nbsp;cm; 6&nbsp;cm; 5&nbsp;cm; 3&nbsp;cm) smo izračunali lomne napetosti, ki se gibljejo med 134&nbsp;MPa in 185&nbsp;MPa. Na grafu <script>getRef("ref-graf-lomna-napetost-razdalja");</script> lahko opazimo, da se lomna napetost s povečevanjem razdalje rahlo dviga. Pri večji razdalji med podporama se namreč špaget ne obnaša več le prečno, ampak prevladujejo upogibne napetosti (špaget se pred zlomom upogne). Razdalja med podporama neposredno vpliva na to, ali se material zlomi zaradi čistega striga ali zaradi upogiba. Pri večjih razdaljah se špaget obnaša bolj prožno.
+            Pri meritvah vpliva razdalje \(L\) (graf <script>getRef("ref-graf-lomna-napetost-razdalja");</script>) smo uporabil špagete debeline \(d = \) 1,169 mm. Izmerjene napetosti se gibljejo med 134 MPa in 185 MPa. Na grafu lahko opazimo, da se lomna napetost s povečevanjem razdalje rahlo dviga. Pri majhnih razdaljah k lomu prispeva strižna napetost, pri večjih razdaljah pa prevladujejo čiste upogibne napetosti. Špaget se pri večjih razdaljah obnaša bolj prožno, naša enačba za izračun napetosti
+            \[ \sigma = \frac{8FL}{\pi d^3} \]
+            pa je najbolj natančna prav v območju čistega upogiba.
         </p>
-        \[ \sigma = \frac{8FL}{\pi d^3} \]
 
-        <h2>Ukrivljenost/upogib pred zlomom</h2>
+        <h2>Poves pred zlomom</h2>
         <p>
-            Med meritvami vpliva debeline \(d\) in razdalje \(L\) na silo, ki je potrebna, da špaget zlomimo, smo zraven opazovali tudi upogib špageta (koliko se upogne tik preden poči). To smo storili tako, da smo vsako meritev posneli in nato s posnetka razbrali "višino" raztezka oz. upogib.
+            Med meritvami vpliva debeline \(d\) in razdalje \(L\) na silo, ki je potrebna, da špaget zlomimo, smo zraven opazovali tudi poves špageta (navpični odmik sredine tik pred lomom). To smo storili tako, da smo vsako meritev posneli in nato s posnetka razbrali „višino“ raztezka oz. poves.
         </p>
         <p>
-            Opazili smo, da se špaget pri majhnih razdaljah manj ukrivi kot pa pri večjih razdaljah. Prav tako smo opazili, da se debelejši špaget manj upogne kot tanjši.
+            Opazili smo, da se špaget pri majhnih razdaljah manj povesi kot pa pri večjih razdaljah. Prav tako smo opazili, da se debelejši špaget manj povesi kot tanjši.
         </p>
         <figure>
-            <canvas id="ukrivljenost-debelina-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-ukrivljenost-debelina")</script> odvisnost ukrivljenosti od debeline špagetov</figcaption>
+            <canvas id="poves-debelina-graf"></canvas>
+            <figcaption><script>setRef(GRAF, "ref-graf-poves-debelina");</script> odvisnost povesa od debeline špagetov</figcaption>
             <script>
-                new Chart(document.getElementById('ukrivljenost-debelina-graf'), {
+                new Chart(document.getElementById('poves-debelina-graf'), {
                 type: 'scatterWithErrorBars',
                 data: {
                     datasets: [{
@@ -629,10 +643,10 @@
             </script>
         </figure>
         <figure>
-            <canvas id="ukrivljenost-razdalja-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-ukrivljenost-razdalja")</script> odvisnost ukrivljenosti od razdalje med podporama</figcaption>
+            <canvas id="poves-razdalja-graf"></canvas>
+            <figcaption><script>setRef(GRAF, "ref-graf-poves-razdalja");</script> odvisnost povesa od razdalje med podporama</figcaption>
             <script>
-                new Chart(document.getElementById('ukrivljenost-razdalja-graf'), {
+                new Chart(document.getElementById('poves-razdalja-graf'), {
                 type: 'scatterWithErrorBars',
                 data: {
                     datasets: [{
@@ -644,18 +658,6 @@
 
                         pointRadius: 10,
                         borderWidth: 2,
-                    },
-                    {
-                        type: 'line',
-                        label: 'fit',
-                        data: [
-                            { x: 7.5, y: 0.6412954023269998 },{ x: 8.0, y: 0.7151893907923492 },{ x: 8.5, y: 0.7923402243649728 },{ x: 9.0, y: 0.8726871795454644 },{ x: 9.5, y: 0.9561740469888261 },{ x: 10.0, y: 1.0427485712037226 },{ x: 10.5, y: 1.1323619848744855 },{ x: 11.0, y: 1.2249686179982455 },{ x: 11.5, y: 1.3205255669036742 },{ x: 12.0, y: 1.4189924117292039 },{ x: 12.5, y: 1.5203309735100683 },{ x: 13.0, y: 1.6245051039347802 },{ x: 13.5, y: 1.731480502271487 },{ x: 14.0, y: 1.8412245550626933 },{ x: 14.5, y: 1.95370619503376 },{ x: 15.0, y: 2.0688957763205407 },{ x: 15.5, y: 2.186764963640794 },{ x: 16.0, y: 2.3072866334461413 },{ x: 16.5, y: 2.430434785421198 },{ x: 17.0, y: 2.556184462962499 },{ x: 17.5, y: 2.6845116814858825 },{ x: 18.0, y: 2.8153933635876336 },{ x: 18.5, y: 2.9488072802300502 },{ x: 19.0, y: 3.0847319972423475 },{ x: 19.5, y: 3.223146826527946 },{ x: 20.0, y: 3.3640317814529137 },
-                        ],
-
-                        pointRadius: 0, // hide points
-                        borderWidth: 2,
-                        borderDash: [8, 4],
-                        fill: false,
                     }]
                 },
 
@@ -705,13 +707,29 @@
             </script>
         </figure>
         <p>
-            Grafa <script>getRef("ref-graf-ukrivljenost-debelina");</script> in <script>getRef("ref-graf-ukrivljenost-razdalja");</script> potrjujeta naša opažanja, da na ukrivljenost vpliva tako debelina kot tudi razdalja med podporama. Z večanjem debeline se ukrivljenost zmanjšuje, z večanjem razdalje pa se ukrivljenost povečuje. Tako smo ugotovili, da je špaget najbolj elastičen, ko je tanek in dolg. Nasprotno pa so kratki in debeli špageti bolj togi in se zlomijo že pri minimalnem upogibu.
+            Z grafov <script>getRef("ref-graf-poves-debelina");</script> in <script>getRef("ref-graf-poves-razdalja");</script> je razvidno, da na poves vpliva tako debelina kot tudi razdalja med podporama. Z večanjem debeline se ukrivljenost zmanjšuje, z večanjem razdalje pa se ukrivljenost povečuje. Tako smo ugotovili, da je špaget najbolj elastičen, ko je tanek in dolg. Nasprotno pa so kratki in debeli špageti bolj togi in se zlomijo že pri minimalnem povesu.
         </p>
         <p>
             Kot smo že prej ugotovili, daljši kot je špaget, večji je navor in tako že majhna sila povzroči deformacijo. In debelejši kot je špaget, večji je vztrajnostni moment ploskve in težje pride do deformacije/upogiba.
         </p>
         <p>
-            Pri grafu za odvisnost ukrivljenosti od debeline špagetov (<script>getRef("ref-graf-ukrivljenost-debelina");</script>) uporabimo potenčno funkcijo. Material se zlomi, ko mehanska deformacija na zunanji površini doseže kritično mejo. Površinska deformacija je podana z enačbo \(\epsilon = \frac 1 2 kd\), \(k = \frac{2\epsilon} d\), torej imamo potenčno odvisnost. Čeprav imamo le dve meritvi pri grafu za odvisnost ukrivljenosti od razdalje med podporama prav tako uporabimo potenčno funkcijo, saj v teoriji upogib narašča s tretjo potenco dolžine oz. oddaljenosti: \(\mathrm{upogib} = \frac{FL^3}{48EI}\).
+            Pri grafu <script>getRef("ref-graf-poves-debelina");</script>, ki prikazuje odvisnost povesa od debeline špageta, smo uporabili potenčno funkcijo. 
+        </p>
+        <h4>
+            Razlaga:
+        </h4>
+        <p>
+            Material se zlomi, ko mehanska deformacija na zunanji površini doseže kritično mejo. Površinska deformacija je pri povesu povezana z debelino špageta in ukrivljenostjo z enačbo
+            \[\epsilon = \frac 1 2 kd.\]
+            Iz tega sledi, da je ukrivljenost ob lomu obratno sorazmerna z debelino: \(k = \frac{2\epsilon}{d}\).
+        </p>
+        <p>
+            Ker je poves neposredno povezan z ukrivljenostjo palice, pričakujemo, da bodo tanjši špageti zdržali večje ukrivitve in s tem večje povese pred lomom kot debelejši špageti. Debelejši špageti dosežejo kritično deformacijo \(\epsilon\) že pri zelo majhnem povesu, saj se zaradi večjega polmera zunanje plasti materiala raztegnejo hitreje. Naše meritve potrjujejo to potenčno odvisnost.
+        </p>
+        <p>
+            Pri grafu <script>getRef("ref-graf-poves-razdalja");</script>, ki prikazuje odvisnost povesa od razdalje med podporama, nismo uporabili funkcije fita, saj imamo na voljo le dve meritvi. Narisana trendna črta med dvema točkama ne bi mogla zanesljivo potrditi teoretičnega modela. Kljub temu pa podatki nakazujejo na naraščanje povesa z dolžino, kar predvideva tudi teorija o upogibu nosilca, kjer poves narašča s tretjo potenco dolžine:
+            \[ \mathrm{upogib} = \frac{FL^3}{48EI} \]
+            V zgornji enačbi \(E\) predstavlja Youngov modul elastičnosti materiala, \(I\) pa vztrajnostni moment ploskve. Za potrditev te potenčne odvisnosti bi v prihodnje potrebovali meritve pri več različnih razdaljah \(L\).
         </p>
 
 
@@ -817,11 +835,11 @@
             </table>
         </figure>
         <p>
-            Iz grafa <script>getRef("ref-graf-snopi")</script> je razvidno, da lomilna sila z večanjem števila špagetov narašča skoraj linearno. Vsak dodaten špaget v snopu je v povprečju povečal silo, ki jo je snop prenesel pred zlomom. Točke ne ležijo popolnoma na premici, kar potrjuje, da je bil poskus občutljiv tudi na geometrijo snopa in način vpetja. Največji raztros vidimo pri ponovljenih meritvah za \(n=15\) in \(n=40\), kjer smo pri enakem številu špagetov dobili različne lomilne sile.
+            Iz grafa <script>getRef("ref-graf-snopi");</script> je razvidno, da lomilna sila z večanjem števila špagetov narašča skoraj linearno. Vsak dodaten špaget v snopu je v povprečju povečal silo, ki jo je snop prenesel pred zlomom. Točke ne ležijo popolnoma na premici, kar potrjuje, da je bil poskus občutljiv tudi na geometrijo snopa in način vpetja. Največji raztros vidimo pri ponovljenih meritvah za \(n=15\) in \(n=40\), kjer smo pri enakem številu špagetov dobili različne lomilne sile.
         </p>
         <figure>
             <canvas id="snopi-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-snopi")</script> odvisnost lomilne sile snopa od števila špagetov pri razdalji med podporama \(L=11{,}5 \, \mathrm{cm}\) <br> Točke predstavljajo meritve, črtkana premica pa linearno prileganje. Točka pri \(n=35\) je označena posebej, ker je bilo število špagetov pri tej meritvi ocenjeno iz mase.
+            <figcaption><script>setRef(GRAF, "ref-graf-snopi");</script> odvisnost lomilne sile snopa od števila špagetov pri razdalji med podporama \(L=11{,}5 \, \mathrm{cm}\) <br> Točke predstavljajo meritve, črtkana premica pa linearno prileganje. Točka pri \(n=35\) je označena posebej, ker je bilo število špagetov pri tej meritvi ocenjeno iz mase.
             </figcaption>
             <script>
                 new Chart(document.getElementById('snopi-graf'), {
@@ -1071,19 +1089,19 @@
             Upogibanje špagetov
         </h1>
         <p>
-            Zanimalo nas je, ali se bo lomljivost špagetov spremenila, če jih velikokrat upognemo. Za izvedbo tega poskusa smo si pomagali s funkcijskim generatorjem in gonilnikom signala (fotografija <script>getRef("ref-slika-funkcijski-generator-in-gonilnik");</script>). Vrsto špagetov smo na koncih pritrdili na lesena bloka, oddaljena 20&nbsp;cm, na sredini pa so bili podprti s prečko, ki je nihala gor in dol z nastavljeno frekvenco (fotografija <script>getRef("ref-slika-upognjevalec");</script>). To, da je dejanska frekvenca nihanja bila res enaka nastavljeni, smo potrdili tako, da smo nihanje posneli s 120 sličicami na sekundo in video analizirali (primer: video <script>getRef("ref-video-upogibanje")</script>).
+            Zanimalo nas je, ali se bo lomljivost špagetov spremenila, če jih velikokrat upognemo. Za izvedbo tega poskusa smo si pomagali s funkcijskim generatorjem in gonilnikom signala (fotografija <script>getRef("ref-slika-funkcijski-generator-in-gonilnik");</script>). Vrsto špagetov smo na koncih pritrdili na lesena bloka, oddaljena 20&nbsp;cm, na sredini pa so bili podprti s prečko, ki je nihala gor in dol z nastavljeno frekvenco (fotografija <script>getRef("ref-slika-upognjevalec");</script>). To, da je dejanska frekvenca nihanja bila res enaka nastavljeni, smo potrdili tako, da smo nihanje posneli s 120 sličicami na sekundo in video analizirali (primer: video <script>getRef("ref-video-upogibanje");</script>).
         </p>
         <figure>
             <img src="./media/funkcijski_generator_in_gonilnik.jpg" alt="Fotografiji uporabljenega funkcijskega generatorja in gonilnika" loading="lazy" class="siroka">
-            <figcaption><script>setRef(SLIKA, "ref-slika-funkcijski-generator-in-gonilnik")</script> uporabljen funkcijski generator in gonilnik</figcaption>
+            <figcaption><script>setRef(SLIKA, "ref-slika-funkcijski-generator-in-gonilnik");</script> uporabljen funkcijski generator in gonilnik</figcaption>
         </figure>
         <figure>
             <img src="./media/upognjevalec.jpg" alt="Fotografija upognjevalca špagetov" loading="lazy">
-            <figcaption><script>setRef(SLIKA, "ref-slika-upognjevalec")</script> upognjevalec špagetov</figcaption>
+            <figcaption><script>setRef(SLIKA, "ref-slika-upognjevalec");</script> upognjevalec špagetov</figcaption>
         </figure>
         <figure>
             <iframe src="https://www.youtube.com/embed/S8Q_l8cOnb8?si=80C08Z5BOjY9eJLZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <figcaption><script>setRef(VIDEO, "ref-video-upogibanje")</script> upočasnjen posnetek upogibanja špagetov</figcaption>
+            <figcaption><script>setRef(VIDEO, "ref-video-upogibanje");</script> upočasnjen posnetek upogibanja špagetov</figcaption>
         </figure>
         <p>
             Gonilnik smo med poskusom štirikrat ustavili in izmerili lomilno silo pri 20&nbsp;cm razmiku med podporama, vsakič za 8 špagetov. Pri tem smo iz časa upogibanja \(t\), ki smo ga merili s štoparico, in frekvence \(\nu\) izračunali tudi približno št. nihajev \(N=\nu t\). Začeli smo s frekvenco 10&nbsp;Hz, potem pa smo zaradi časovne omejitve po prvi ustavitvi frekvenco zvišali na 20&nbsp;Hz, po drugi ustavitvi pa na 30&nbsp;Hz.
@@ -1092,7 +1110,7 @@
         <h2>Rezultati</h2>
         <figure>
             <canvas id="upogibanje-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-upogibanje")</script> lomilna sila v odvisnosti od nihajev</figcaption>
+            <figcaption><script>setRef(GRAF, "ref-graf-upogibanje");</script> lomilna sila v odvisnosti od nihajev</figcaption>
             <script>
                 new Chart(document.getElementById('upogibanje-graf'), {
                 type: 'scatterWithErrorBars',
@@ -1244,7 +1262,7 @@
             Sila, potrebna za zlom enega namočenega špageta, je bila 0,39&nbsp;N&nbsp;±&nbsp;0,04&nbsp;N, za zlom suhega špageta pa 0,73&nbsp;N ±&nbsp;0,07&nbsp;N.
         </p>
         <p>
-            Sila, potrebna za zlom snopa petnajstih namočenih špagetov, je bila 2,2&nbsp;N&nbsp;±&nbsp;0,3&nbsp;N, silo, potrebno za zlom enakega števila suhih špagetov pa lahko napovemo s pomočjo grafa <script>getRef("ref-graf-snopi")</script>:
+            Sila, potrebna za zlom snopa petnajstih namočenih špagetov, je bila 2,2&nbsp;N&nbsp;±&nbsp;0,3&nbsp;N, silo, potrebno za zlom enakega števila suhih špagetov pa lahko napovemo s pomočjo grafa <script>getRef("ref-graf-snopi");</script>:
         </p>
         \[
             F_{\mathrm{lom,N°3}} (n)=n(0{,}77 \,\mathrm N \pm 0{,}05 \,\mathrm N) + (2{,}78 \,\mathrm N \pm 1{,}36 \,\mathrm N)

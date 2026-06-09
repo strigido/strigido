@@ -839,7 +839,7 @@
         </p>
         <figure>
             <canvas id="snopi-graf"></canvas>
-            <figcaption><script>setRef(GRAF, "ref-graf-snopi");</script> odvisnost lomilne sile snopa od števila špagetov pri razdalji med podporama \(L=11{,}5 \, \mathrm{cm}\) <br> Točke predstavljajo meritve, črtkana premica pa linearno prileganje. Točka pri \(n=35\) je označena posebej, ker je bilo število špagetov pri tej meritvi ocenjeno iz mase.
+            <figcaption><script>setRef(GRAF, "ref-graf-snopi");</script> odvisnost lomilne sile snopa od števila špagetov pri razdalji med podporama \(L=11{,}5 \, \mathrm{cm}\) <br> Točke predstavljajo posamezne meritve, črtkana premica pa linearno prileganje. Točka pri \(n=35\) je označena posebej, ker je bilo število špagetov pri tej meritvi ocenjeno iz mase.
             </figcaption>
             <script>
                 new Chart(document.getElementById('snopi-graf'), {
@@ -928,21 +928,20 @@
         <h2>Matematični opis opaženega vzorca</h2>
 
         <p>
-            Ker graf kaže približno linearno naraščanje lomilne sile s številom špagetov, smo podatke opisali z linearno zvezo
+            Ker graf kaže približno linearno naraščanje lomilne sile \(F_\mathrm{lom}\) s številom špagetov \(n\), smo podatke opisali z linearno zvezo
         </p>
         \[F_\mathrm{lom}(n) = an + b.\]
         <p>
-            Z metodo najmanjših kvadratov dobimo
+            S prilagajanjem premice podatkom smo dobili oceni za koeficient \(a\) in prosti člen \(b\), skupaj z negotovostmi. Rezultat linearnega prileganja je bil
         </p>
-        \[F_\mathrm{lom}(n) = (0{,}77297 \pm 0{,}04366)n + (2,775 \pm 1,355),\]
+        \[F_\mathrm{lom}(n) = (0{,}77 \,\mathrm N \pm 0{,}04 \,\mathrm N) \cdot n + (2{,}78 \,\mathrm N \pm 1{,}36 \,\mathrm N).\]
         <p>
-            kjer je \(F_\mathrm{lom}\) podan v Newtonih, \(n\) pa je število špagetov v snopu. Koeficient determinacije je
+            Koeficient determinacije je \(R^2=0{,}9691\).
         </p>
-        \[R^2=0{,}9691.\]
         <p>
             Ker je \(R^2\) zelo blizu 1, linearni model dobro opiše izmerjene podatke. Naklon premice
         </p>
-        \[ a = 0{,}773 \, \mathrm{N}/\mathrm{špaget} \]
+        \[ a = 0{,}77 \, \mathrm{N}/\mathrm{špaget} \]
         <p>
             pomeni, da je v našem poskusu en dodaten špaget povečal lomilno silo snopa povprečno za približno 0,77 N. Prosti člen
         </p>
@@ -952,14 +951,14 @@
         </p>
         <p>
             Za snop petnajstih špagetov linearni model napove
+            \[F_\mathrm{lom}(15)=0{,}77 \cdot 15 + 2{,}78 = 14{,}33 \,\mathrm{N}.\]
         </p>
-        \[F_\mathrm{lom}(15)=0{,}77297 \cdot 15 + 2{,}775 = 14{,}37 \,\mathrm{N}.\]
         <p>
             Neposredne meritve za \(n=15\) pri prvem načinu vpetja so bile 15,37&nbsp;N, 11,71&nbsp;N in 15,13&nbsp;N. Njihovo povprečje je \(\overline{F_{15}} = 14{,}07 \,\mathrm{N}\), standardni odklon pa \(s_{15} = 2{,}05 \,\mathrm{N}\), zato lahko za suhi snop petnajstih špagetov zapišemo
+            \[ F_\mathrm{lom} \approx 14{,}1 \,\mathrm N \pm 2{,}1 \,\mathrm N.\]
         </p>
-        \[ F_\mathrm{lom} \approx 14{,}1 \,\mathrm N \pm 2{,}1 \,\mathrm N.\]
         <p>
-            Ta vrednost se dobro ujema z napovedjo linearnega modela 14,37&nbsp;N. To potrjuje, da linearno prileganje ni samo formalno prileganje grafa, ampak tudi smiselno napove lomilno silo za konkretno število špagetov.
+            Ta vrednost se dobro ujema z napovedjo linearnega modela 14,33&nbsp;N. To potrjuje, da linearno prileganje ni samo formalno prileganje grafa, ampak tudi smiselno napove lomilno silo za konkretno število špagetov.
         </p>
 
         <h2>Fizikalna razlaga linearnega trenda</h2>
@@ -1070,14 +1069,14 @@
             Kljub tem negotovostim je trend na grafu jasen. Lomilna sila narašča z večanjem števila špagetov in je v našem območju meritev zelo dobro opisana z linearno funkcijo.
         </p>
         <p>
-            Poskus bi lahko izboljšali tako, da bi za vsako vrednost n izvedli več ponovitev, uporabili vedno enak način vpetja in pred vsako meritvijo natančno določili geometrijo snopa. Smiselno bi bilo tudi snemati lom z visoko hitrostjo, da bi lahko natančneje določili, kateri špaget se zlomi prvi in kako hitro se porušitev razširi po snopu. Za boljšo primerjavo različnih načinov vpetja bi morali za vsak način vpetja izvesti dovolj meritev pri enakih vrednostih n.
+            Poskus bi lahko izboljšali tako, da bi za vsako vrednost \(n\) izvedli več ponovitev, uporabili vedno enak način vpetja in pred vsako meritvijo natančno določili geometrijo snopa. Smiselno bi bilo tudi snemati lom z visoko hitrostjo, da bi lahko natančneje določili, kateri špaget se zlomi prvi in kako hitro se porušitev razširi po snopu. Za boljšo primerjavo različnih načinov vpetja bi morali za vsak način vpetja izvesti dovolj meritev pri enakih vrednostih \(n\).
         </p>
 
         <h2>Zaključek</h2>
         <p>
             Ugotovili smo, da je število špagetov v snopu eden glavnih parametrov, ki določa lomilno silo. V območju od približno 10 do 50 špagetov je odvisnost dobro opisana z linearno zvezo
         </p>
-        \[ F_\mathrm{lom}(n) = 0{,}773n + 2{,}775. \]
+        \[ F_\mathrm{lom}(n) = 0{,}77n + 2{,}78. \]
         <p>
             Ker je \( R^2 = 0{,}9691 \), linearni model dobro opiše meritve. Fizikalno to pomeni, da se snop špagetov ni obnašal kot popolnoma homogena palica, za katero bi pričakovali močnejšo, približno \(n^{3/2}\), odvisnost. Obnašal se je bolj kot skupek posameznih špagetov, ki silo prenašajo približno aditivno. To je skladno tudi z opaženim načinom loma: najprej se je zlomil eden izmed zgornjih špagetov, nato pa se je sila prerazporedila na preostale špagete in povzročila verižno porušitev celotnega snopa.
         </p>
